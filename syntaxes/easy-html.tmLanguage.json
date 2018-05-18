@@ -2,18 +2,35 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Easy Html",
 	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
+		{"include": "#keywords"},
+		{"include": "#strings"},
+		{"include": "#element"},
+		{"include": "#text"}
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [{
-				"name": "keyword.control.easy-html",
+				"name": "control.ehtml",
 				"match": "\\b(if|while|for|return)\\b"
+			}]
+		},
+		"dot": {
+			"patterns": [{
+				"name": "dot.ehtml",
+				"match": "\."
+			}]
+		},
+		"element": {
+			"patterns": [{
+				"name": "punctuation.definition.tag.html",
+				"match": "!?[\w\d-\.]+"
+			}]
+		},
+		"text": {
+			"patterns": [{
+				"name": "text.html.basic",
+				"begin": "'",
+				"end": "'"
 			}]
 		},
 		"strings": {
