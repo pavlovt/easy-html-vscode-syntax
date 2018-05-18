@@ -1,0 +1,26 @@
+{
+    "name": "easy-html",
+    "displayName": "easy-html",
+    "description": "html without boilerplate",
+    "version": "0.0.1",
+    "publisher": "b4pubfv446djflsbeg6c44eu6yutcvxxsqa6ndqckxjnf3qhwlha",
+    "engines": {
+        "vscode": "^1.23.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "easy-html",
+            "aliases": ["Easy Html", "easy-html"],
+            "extensions": ["ehtml"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "easy-html",
+            "scopeName": "source.easy-html",
+            "path": "./syntaxes/easy-html.tmLanguage.json"
+        }]
+    }
+}
