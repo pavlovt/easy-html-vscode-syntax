@@ -5,7 +5,8 @@
 		{"include": "#keywords"},
 		{"include": "#strings"},
 		{"include": "#element"},
-		{"include": "#text"}
+		{"include": "#text"},
+		{"include": "#dot"}
 	],
 	"repository": {
 		"keywords": {
