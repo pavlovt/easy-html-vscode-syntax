@@ -14,7 +14,7 @@
         "languages": [{
             "id": "easy-html",
             "aliases": ["Easy Html", "easy-html"],
-            "extensions": ["ehtml"],
+            "extensions": ["ehtml", "easy"],
             "configuration": "./language-configuration.json"
         }],
         "grammars": [{

@@ -1,30 +1,113 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Easy Html",
-	"file_extensions": [ "ehtml" ],
+	"file_extensions": [ "ehtml", "easy" ],
 	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
+		{"include": "#keywords"},
+		{"include": "#dquote"},
+		{"include": "#squote"},
+		{"include": "#scomment"},
+		{"include": "#mcomment"}
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [{
-				"name": "keyword.control.ehtml",
-				"match": "\\b(if|while|for|return)\\b"
+				"name": "entity.name.tag.easy-html",
+				"match": "\\b:?@?[a-zA-Z0-9-*!-]+\\b"
 			}]
 		},
-		"strings": {
-			"name": "string.quoted.double.ehtml",
+		"dquote": {
+			"name": "string.quoted.double.easy-html",
 			"begin": "\"",
 			"end": "\"",
 			"patterns": [
 				{
-					"name": "constant.character.escape.ehtml",
+					"name": "constant.character.escape.easy-html",
 					"match": "\\\\."
+				}
+			]
+		},
+		"squote": {
+			"name": "string.quoted.double.easy-html",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.easy-html",
+					"match": "\\\\."
+				}
+			]
+		},
+		"scomment": {
+			"patterns": [{
+				"name": "comment.easy-html",
+				"match": "//.*"
+			}]
+		},
+		"mcomment": {
+			"patterns": [
+				{
+					"name": "comment.block.documentation.easy-html",
+					"begin": "/\\*\\*(?!/)",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.easy-html"
+						}
+					},
+					"end": "\\*/",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.easy-html"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#docblock"
+						}
+					]
+				},
+				{
+					"name": "comment.block.js",
+					"begin": "(/\\*)(?:\\s*((@)internal)(?=\\s|(\\*/)))?",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.comment.easy-html"
+						},
+						"2": {
+							"name": "storage.type.internaldeclaration.easy-html"
+						},
+						"3": {
+							"name": "punctuation.decorator.internaldeclaration.easy-html"
+						}
+					},
+					"end": "\\*/",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.easy-html"
+						}
+					}
+				},
+				{
+					"begin": "(^[ \\t]+)?((//)(?:\\s*((@)internal)(?=\\s|$))?)",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.whitespace.comment.leading.easy-html"
+						},
+						"2": {
+							"name": "comment.line.double-slash.easy-html"
+						},
+						"3": {
+							"name": "punctuation.definition.comment.easy-html"
+						},
+						"4": {
+							"name": "storage.type.internaldeclaration.easy-html"
+						},
+						"5": {
+							"name": "punctuation.decorator.internaldeclaration.easy-html"
+						}
+					},
+					"end": "(?=^)",
+					"contentName": "comment.line.double-slash.easy-html"
 				}
 			]
 		}
