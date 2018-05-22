@@ -1,46 +1,29 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Easy Html",
+	"file_extensions": [ "ehtml" ],
 	"patterns": [
-		{"include": "#keywords"},
-		{"include": "#strings"},
-		{"include": "#element"},
-		{"include": "#text"},
-		{"include": "#dot"}
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		}
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [{
-				"name": "control.ehtml",
+				"name": "keyword.control.ehtml",
 				"match": "\\b(if|while|for|return)\\b"
 			}]
 		},
-		"dot": {
-			"patterns": [{
-				"name": "dot.ehtml",
-				"match": "\."
-			}]
-		},
-		"element": {
-			"patterns": [{
-				"name": "punctuation.definition.tag.html",
-				"match": "!?[\w\d-\.]+"
-			}]
-		},
-		"text": {
-			"patterns": [{
-				"name": "text.html.basic",
-				"begin": "'",
-				"end": "'"
-			}]
-		},
 		"strings": {
-			"name": "string.quoted.double.easy-html",
+			"name": "string.quoted.double.ehtml",
 			"begin": "\"",
 			"end": "\"",
 			"patterns": [
 				{
-					"name": "constant.character.escape.easy-html",
+					"name": "constant.character.escape.ehtml",
 					"match": "\\\\."
 				}
 			]
